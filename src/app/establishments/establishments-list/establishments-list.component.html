@@ -1,0 +1,7 @@
+<div class="establishments-list">
+  <establishment-card
+    *ngFor="let establishment of establishments"
+    [routerLink]="['/estabelecimento/detalhe', establishment.id]"
+    [establishment]="establishment"
+  ></establishment-card>
+</div>

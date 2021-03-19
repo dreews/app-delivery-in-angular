@@ -1,0 +1,47 @@
+@import './variables.scss';
+
+.my-delivery-app {
+  input[type=text], input[type=email] {
+    border: solid 1px $gray-light-tertiary;
+    background-color: $gray-light-quaternary;
+    padding: 10px;
+    border-radius: 4px;
+    color: $gray-dark-primary;
+  }
+
+  &__form-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 1em;
+      color: $gray-dark-primary;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__btn {
+    color: $dark;
+    border: 0;
+    padding: 12px 25px;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-size: 0.8em;
+  }
+
+  &__btn-success {
+    color: $white;
+    background-color: $green-light-primary;
+  }
+
+  &__btn-success[disabled] {
+    background-color: $green-light-secondary;
+  }
+
+}

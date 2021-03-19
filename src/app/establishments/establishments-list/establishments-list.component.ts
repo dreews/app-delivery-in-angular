@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DialogService } from '../services/dialog.service';
+import { DialogService } from '../../services/dialog.service';
 
-import { Establishment } from './establishment.model'
-import { EstablishmentsService } from './establishments.service';
+import { Establishment } from '../establishment.model'
+import { EstablishmentsService } from '../establishments.service';
 
 @Component({
   selector: 'establishments-list',

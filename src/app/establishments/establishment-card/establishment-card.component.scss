@@ -1,0 +1,58 @@
+@import '../../styles/variables.scss';
+
+.establishment-card {
+  background-color: $white;
+  padding: 8px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0px 2px 1px $gray-light-tertiary;
+  cursor: pointer;
+
+  &__thumb {
+    flex-basis: 80px;
+  }
+
+  &__image {
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  &__content {
+    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__id {
+    color: $gray-light-secondary;
+    margin-left: 10px;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    width: 100px;
+    word-break: break-all;
+  }
+
+  &__title {
+    font-size: 0.8em;
+    color: $gray-dark-primary;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    font-size: 1.2em;
+    color: $gray-light-secondary;
+  }
+
+  @media (min-width: $sm) {
+    &__id {
+      width: auto;
+    }
+  }
+}

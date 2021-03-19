@@ -17,14 +17,14 @@ export class EstablishmentsService implements ServiceInterface<Establishment> {
     return Promise.resolve(ESTABLISHMENTS)
   }
 
-  async find(id: number): Promise<Establishment> {
+  async find(id: string): Promise<Establishment> {
     return Promise.resolve(ESTABLISHMENTS.find((establishment) => (
       establishment.id === id
     )))
   }
 
   async update(establishment: Establishment): Promise<Establishment> {
-    return;
+    return Promise.resolve(establishment)
   }
 
   private handleError(err: any): Promise<any> {

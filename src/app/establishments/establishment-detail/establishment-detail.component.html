@@ -1,0 +1,109 @@
+<div class="establishment-detail">
+  <div class="my-app-delivery__container">
+    <div class="establishment-detail__header">
+      <div class="establishment-detail__header-goback">
+        <button (click)="goBack()">&#8592;</button>
+      </div>
+      <div class="establishment-detail__header-thumb">
+        <img src="assets/thumb.jpg" class="establishment-detail__header-image">
+      </div>
+      <div class="establishment-detail__header-content">
+        <div class="establishment-detail__header-title">
+          <h1>{{ establishment.name }}</h1>
+          <span class="establishment-detail__header-id">{{ establishment.id }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="establishment-detail__content">
+      <form #establishmentForm="ngForm" novalidate (ngSubmit)="onSubmit()" class="establishment-detail__form">
+        <h2 class="establishment-detail__form-title">
+          Informações básicas
+        </h2>
+
+        <div class="my-delivery-app__form-group">
+          <div class="my-delivery-app__input">
+            <label for="name" class="">Nome</label>
+            <input
+              type="text"
+              name="name"
+              [ngModel]="establishment.name"
+              (ngModelChange)="establishment.name=$event"
+            >
+          </div>
+
+          <div class="my-delivery-app__input">
+            <label for="email" class="">Email</label>
+            <input
+              type="email"
+              name="email"
+              [ngModel]="establishment.email"
+              (ngModelChange)="establishment.email=$event"
+            >
+          </div>
+
+          <div class="my-delivery-app__input">
+            <label for="phone" class="">Telefone</label>
+            <input
+              type="text"
+              name="phone"
+              [ngModel]="establishment.phone"
+              (ngModelChange)="establishment.phone=$event"
+            >
+          </div>
+
+          <div class="my-delivery-app__input">
+            <label for="address" class="">Endereço</label>
+            <input
+              type="text"
+              name="address"
+              [ngModel]="establishment.address"
+              (ngModelChange)="establishment.address=$event"
+            >
+          </div>
+
+          <div class="my-delivery-app__input">
+            <label for="registered" class="">Data de registro</label>
+            <input
+              type="text"
+              name="registered"
+              [ngModel]="establishment.registered"
+              (ngModelChange)="establishment.registered=$event"
+            >
+          </div>
+
+          <div class="my-delivery-app__input">
+            <label for="latitude" class="">Latitude</label>
+            <input
+              type="text"
+              name="latitude"
+              [ngModel]="establishment.latitude"
+              (ngModelChange)="establishment.latitude=$event"
+            >
+          </div>
+
+          <div class="my-delivery-app__input">
+            <label for="longitude" class="">Longitude</label>
+            <input
+              type="text"
+              name="longitude"
+              [ngModel]="establishment.longitude"
+              (ngModelChange)="establishment.longitude=$event"
+            >
+          </div>
+        </div>
+
+
+        <div class="establishment-detail__button-wrapper">
+          <button
+            type="submit"
+            class="my-delivery-app__btn my-delivery-app__btn-success"
+            [disabled]="!establishmentForm.form.valid"
+          >
+            Salvar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

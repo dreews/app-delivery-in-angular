@@ -1,12 +1,13 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Establishment } from './establishment.model';
-import { EstablishmentsService } from './establishments.service';
+import { Establishment } from '../establishment.model';
+import { EstablishmentsService } from '../establishments.service';
 
 @Component({
   selector: 'establishment-detail',
-  templateUrl: 'establishment-detail.component.html'
+  templateUrl: 'establishment-detail.component.html',
+  styleUrls: ['./establishment-detail.component.scss'],
 })
 
 export class EstablishmentDetailComponent implements OnInit {
@@ -19,10 +20,10 @@ export class EstablishmentDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.establishment = new Establishment(0, '')
+    this.establishment = new Establishment('', 0, '', '', '', '', '', '', '', '', '')
 
     this.route.params.forEach((params: Params) => {
-      const id: number = Number(params.id);
+      const id: string = params.id;
 
       if (!id) return false;
 
@@ -34,7 +35,9 @@ export class EstablishmentDetailComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.establishment)
+    this.establishmentsService
+      .update(this.establishment)
+      .then(() => this.goBack())
   }
 
   goBack(): void {

@@ -1,6 +1,9 @@
+@import './styles/variables.scss';
+
 .my-delivery-app {
   display: flex;
   justify-content: center;
+  font-size: 12px;
 
   &__main {
     flex: 1;
@@ -15,7 +18,8 @@
   }
 
   &__header-logo {
-    height: 32px;
+    height: 28px;
+    opacity: 0.3;
   }
 
   &__container {
@@ -25,9 +29,16 @@
   &__content {
     display: flex;
     justify-content: center;
+    padding: 30px 10px;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: $md) {
+    &__content {
+      padding: 30px 20px;
+    }
+  }
+
+  @media (min-width: $lg) {
     &__container {
       width: 1024px;
     }
