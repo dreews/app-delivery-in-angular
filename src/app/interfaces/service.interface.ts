@@ -1,5 +1,7 @@
+import { Observable } from "rxjs";
+
 export interface ServiceInterface<T> {
-  findAll(): Promise<T[]>;
-  find(id: string): Promise<T>;
-  update(object: T): Promise<T>;
+  findAll(): Observable<T[]>;
+  find(id: string): Observable<T>;
+  update(object: T): Observable<T>;
 }

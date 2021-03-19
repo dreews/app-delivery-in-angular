@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { EstablishmentCardComponent } from './establishment-card/establishment-card.component';
@@ -11,7 +12,8 @@ import { EstablishmentsService } from './establishments.service';
   imports: [
     CommonModule,
     EstablishmentsRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   exports: [
     EstablishmentsListComponent

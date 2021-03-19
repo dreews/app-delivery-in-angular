@@ -10,7 +10,7 @@ import { EstablishmentsService } from '../establishments.service';
 })
 export class EstablishmentsListComponent implements OnInit {
 
-  establishments: Establishment[] = [];
+  establishments: Establishment[];
 
   constructor(
     private establishmentService: EstablishmentsService,
@@ -18,13 +18,9 @@ export class EstablishmentsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const fetch = async () => {
-      const establishments = await this.establishmentService.findAll()
-      this.establishments = establishments;
-    }
-
-    try { fetch() } catch (err) {
-      console.error('aconteceu um erro', err)
-    }
+    this.establishmentService.findAll()
+      .subscribe((data: Establishment[])=>{
+        this.establishments = data;
+      })
   }
 }

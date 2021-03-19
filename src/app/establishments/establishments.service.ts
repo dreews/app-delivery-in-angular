@@ -1,33 +1,52 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { ServiceInterface } from '../interfaces/service.interface';
 
 import { Establishment } from './establishment.model';
-import { ESTABLISHMENTS } from './establishments-mock';
 
-@Injectable()
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
+@Injectable({
+  providedIn: 'root'
+})
 export class EstablishmentsService implements ServiceInterface<Establishment> {
+  private REST_API_SERVER = "https://my-json-server.typicode.com/james-delivery/frontend-challenge/establishments";
 
-  private establishmentsUrl: string = 'app/establishments'
-  private headers: Headers = new Headers({ 'Content-Type': 'application/json' })
+  constructor(
+    private http: HttpClient
+  ) { }
 
-  constructor() { }
-
-  async findAll(): Promise<Establishment[]> {
-    return Promise.resolve(ESTABLISHMENTS)
+  public findAll(): Observable<Establishment[]> {
+    return this.http.get<Establishment[]>(this.REST_API_SERVER)
+      .pipe(catchError(this.handleError));
   }
 
-  async find(id: string): Promise<Establishment> {
-    return Promise.resolve(ESTABLISHMENTS.find((establishment) => (
-      establishment.id === id
-    )))
+  public find(id: string): Observable<Establishment> {
+    return this.http.get<Establishment>(`${this.REST_API_SERVER}/${id}`)
+      .pipe(catchError(this.handleError));
   }
 
-  async update(establishment: Establishment): Promise<Establishment> {
-    return Promise.resolve(establishment)
+  public update(establishment: Establishment): Observable<Establishment> {
+    const url = `${this.REST_API_SERVER}/${establishment.id}`
+    const body = JSON.stringify(establishment)
+
+    return this.http.put(url, body)
+      .pipe(catchError(this.handleError));
   }
 
-  private handleError(err: any): Promise<any> {
-    return Promise.reject(err.message || err)
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = 'Unknown error!';
+
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+
+    window.alert(errorMessage);
+
+    return throwError(errorMessage);
   }
 }

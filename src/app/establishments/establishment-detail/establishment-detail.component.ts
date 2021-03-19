@@ -27,17 +27,34 @@ export class EstablishmentDetailComponent implements OnInit {
 
       if (!id) return false;
 
-      this.establishmentsService.find(id)
-        .then((establishment: Establishment) => {
-          this.establishment = establishment
-        })
+      const getLocalData = JSON.parse(localStorage.getItem(id))
+
+      this.establishmentsService
+        .find(id)
+        .subscribe(
+          (data) => {
+            this.establishment = getLocalData || data
+          },
+          err => console.log(err)
+        )
     })
   }
 
+  //
+
   onSubmit(): void {
+    let id: string;
+
     this.establishmentsService
       .update(this.establishment)
-      .then(() => this.goBack())
+      .subscribe(
+        (data) => id = data.id,
+        err => console.log(err),
+        () => {
+          localStorage.setItem(id, JSON.stringify(this.establishment))
+          this.goBack()
+        }
+      )
   }
 
   goBack(): void {

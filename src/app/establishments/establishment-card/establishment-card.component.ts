@@ -14,6 +14,7 @@ export class EstablishmentCardComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    const getLocalData = JSON.parse(localStorage.getItem(this.establishment.id))
+    this.establishment = getLocalData || this.establishment
   }
 }
