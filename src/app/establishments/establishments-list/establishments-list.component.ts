@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DialogService } from '../../services/dialog.service';
 
 import { Establishment } from '../establishment.model'
 import { EstablishmentsService } from '../establishments.service';
@@ -13,8 +12,7 @@ export class EstablishmentsListComponent implements OnInit {
   establishments: Establishment[];
 
   constructor(
-    private establishmentService: EstablishmentsService,
-    private dialogService: DialogService,
+    public establishmentService: EstablishmentsService,
   ) { }
 
   ngOnInit(): void {

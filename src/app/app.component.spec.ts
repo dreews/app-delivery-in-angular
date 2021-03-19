@@ -20,16 +20,17 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'app-delivery-in-angular'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('app-delivery-in-angular');
-  });
-
-  it('should render title', () => {
+  it('should render main content of component', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('app-delivery-in-angular app is running!');
+    expect(compiled.querySelector('.my-delivery-app').textContent).not.toBeUndefined()
+  });
+
+  it('should render logo', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.my-delivery-app__header-logo').textContent).not.toBeUndefined()
   });
 });

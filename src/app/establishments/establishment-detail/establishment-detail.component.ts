@@ -16,7 +16,7 @@ export class EstablishmentDetailComponent implements OnInit {
   constructor(
     private location: Location,
     private route: ActivatedRoute,
-    private establishmentsService: EstablishmentsService
+    public establishmentsService: EstablishmentsService
   ) { }
 
   ngOnInit(): void {
@@ -39,8 +39,6 @@ export class EstablishmentDetailComponent implements OnInit {
         )
     })
   }
-
-  //
 
   onSubmit(): void {
     let id: string;

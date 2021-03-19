@@ -28,7 +28,7 @@ export class EstablishmentsService implements ServiceInterface<Establishment> {
       .pipe(catchError(this.handleError));
   }
 
-  public update(establishment: Establishment): Observable<Establishment> {
+  public update(establishment: Establishment): Observable<any> {
     const url = `${this.REST_API_SERVER}/${establishment.id}`
     const body = JSON.stringify(establishment)
 
