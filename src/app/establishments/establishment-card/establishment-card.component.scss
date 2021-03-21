@@ -29,10 +29,9 @@
 
   &__id {
     color: $gray-light-secondary;
-    margin-left: 10px;
+    padding-top: 5px;
     text-transform: uppercase;
     font-size: 1.2em;
-    width: 100px;
     word-break: break-all;
   }
 
@@ -43,6 +42,7 @@
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 10px;
+    flex-wrap: wrap;
   }
 
   &__description {
@@ -52,7 +52,8 @@
 
   @media (min-width: $sm) {
     &__id {
-      width: auto;
+      margin-left: 10px;
+      padding-top: 0;
     }
   }
 }
