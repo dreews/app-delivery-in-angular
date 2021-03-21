@@ -1,5 +1,7 @@
 # AppDeliveryInAngular
 
+[![Build Status](https://travis-ci.com/hideikey/app-delivery-in-angular.svg?branch=master)](https://travis-ci.com/hideikey/app-delivery-in-angular)
+
 ![flow](https://user-images.githubusercontent.com/4133600/111890560-3ffe6300-89c9-11eb-8aa6-1571242982f2.gif)
 
 <img width="1316" alt="local" src="https://user-images.githubusercontent.com/4133600/111890662-64a70a80-89ca-11eb-9d93-77cadc5689d0.png">
