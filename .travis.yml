@@ -1,4 +1,4 @@
-dist: trusty
+dist: xenial
 sudo: false
 
 language: node_js
@@ -6,11 +6,10 @@ node_js:
   - "10"
 
 addons:
+  chrome: stable
   apt:
-    sources:
-      - google-chrome
     packages:
-      - google-chrome-stable
+      - dpkg
 
 cache:
   directories:
@@ -20,5 +19,5 @@ install:
   - npm install
 
 script:
-  - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-  - npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+  - npm run test_headless
+  - npm run e2e_headless
