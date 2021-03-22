@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 3000",
-    "build": "ng build --prod --aot",
+    "start": "node server.js",
+    "build": "ng build",
+    "heroku-postbuild": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -12,19 +13,25 @@
     "e2e_headless": "ng e2e --protractor-config='e2e/ci.protractor.conf.js'",
     "all_tests": "yarn lint && yarn test_headless && yarn e2e_headless"
   },
+  "engines": {
+    "node": "v12.21.0",
+    "npm": "6.14.11"
+  },
   "private": true,
   "dependencies": {
     "@angular-devkit/build-angular": "~0.1002.3",
-    "@angular/cli": "~10.2.3",
-    "@angular/compiler-cli": "~10.2.4",
     "@angular/animations": "~10.2.4",
+    "@angular/cli": "~10.2.3",
     "@angular/common": "~10.2.4",
     "@angular/compiler": "~10.2.4",
+    "@angular/compiler-cli": "~10.2.4",
     "@angular/core": "~10.2.4",
     "@angular/forms": "~10.2.4",
     "@angular/platform-browser": "~10.2.4",
     "@angular/platform-browser-dynamic": "~10.2.4",
     "@angular/router": "~10.2.4",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
